@@ -1,0 +1,226 @@
+
+.topLogo{
+    width: 100%;
+    text-align: center;
+}
+.topLogo img{
+    width: 100%;
+    max-width: 80px;
+    height: auto;
+}
+
+
+.center_Heading h2{
+    /* color: #922A8D; */
+    /* color:linear-gradient(to right, red , yellow); */
+    color: hsl(24, 83%, 55%);
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 56px;
+}
+
+.center_Heading h4, p{
+    color: hsl(24, 83%, 55%);
+}
+.LogInWith{
+    text-align: center;
+    
+}
+.LogInWith h6{
+    font-size: 14px;
+    font-weight: 500;
+    position: relative;
+    color: #ACACAC;
+    display: inline-block;
+}
+/* .LogInWith h6::before{
+    position: absolute;
+    content: " ";
+    background: url(../../Assests/leftline.png);
+    width: 150px;
+    height: 2px;
+    top: 8px;
+    right: 95px;
+    background-size: 100% 70%;
+    background-repeat: no-repeat;
+}
+.LogInWith h6::after{
+    position: absolute;
+    content: " ";
+    background: url(../../Assests/rytline.png);
+    width: 150px;
+    height: 2px;
+    top: 8px;
+    left: 95px;
+    background-repeat: no-repeat;
+    background-size: 100% 70%;
+} */
+.LoginIcons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 22px;
+    padding: 18px 0px;
+}
+.Headings span{
+    margin-top:40px  ;
+    justify-content:center;
+    font-size:17px;
+}
+.Headings .span1 {
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* gap: 22px; */
+    /* padding: 18px 0px; */
+    color: #922A8D;
+    
+}
+.LoginIcons a img{
+    width: 100%;
+    max-width: 32px;
+    min-height: 35px;
+    height: 100%;
+}
+.bottom_Div {
+    width: 100%;
+    text-align: center;
+}
+.bottom_Div h6 {
+    color:#323232;
+    font-weight: 400;
+    font-size: 14px;
+    margin-bottom: 0;
+}
+.bottom_Div h6 a{
+    color:#922A8D;
+    font-weight: 500;
+    font-size: 20px;
+    transition: all .2s ease-in-out;
+}
+.bottom_Div h6 a:hover{
+    opacity: 0.7;
+}
+.defaultSpan{
+    background-color:#FDE10A;
+    color: black;
+    padding: 8px 12px;
+    border: 1px solid transparent;
+    border-radius: 28px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;width: 90px; height: 40px;line-height: 12px;
+}
+.defaultSpan:hover{
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #FDE10A;
+}
+.sendReminderBtn{
+    background-color:#FF7F2A;
+    color: #000;
+    padding: 8px 12px;
+    border: 1px solid transparent;
+    border-radius: 27px;
+    font-size: 12px;
+    font-weight: 600;width: 90px; height: 40px;line-height: 12px;
+    cursor: pointer;
+}
+.sendReminderBtn:hover{
+    background-color: #ffffff;
+    color: #000;
+    border: 1px solid #FF7F2A;
+}
+.greenSpan{
+    background-color: #00E700;
+    color: black;
+    padding: 8px 12px;
+    border: 1px solid transparent;
+    border-radius: 28px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 6px;height: 40px;line-height: 12px;width: 80px; 
+}
+.greenSpan:hover{
+    background-color: transparent;
+    color: #0d9e0d;
+    border: 1px solid #0d9e0d;
+    margin-bottom: 6px;
+}
+.customSpan{
+    background-color:#fff;
+    cursor: pointer;
+}
+
+.displayText_div p{
+    color: #922A8D;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+
+.EventModal{
+    width: 550px !important;
+    border-radius: 15PX !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+}
+
+.EventModal h2{
+    text-align: center !important;
+    font-size: 35px !important;
+    font-weight: 600;
+    color: #922A8D;
+}
+
+.EventModal .eventForms{
+    width: 100% !important;
+    max-width: 390px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+}
+.evntformdiv{
+    display: flex;
+    flex-direction: column;
+}
+.EventModal .eventForms label{
+    color: #922A8D;
+    margin-bottom: 10px;
+}
+.EventModal .eventForms input{
+    background: #fff;
+    box-shadow: 0px 0px 12px #0000004b;
+    padding: 6px 5px;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    outline: none;
+
+}
+.withicon {
+    border-radius: 34px !important;
+    max-width: 500px;
+    width: 100%;
+    font-size: 15px !important;
+    padding-left: 36px !important;
+
+  }
+  .f_form .FundForm {
+    width: 100%;
+  }
+  .f_form .FundForm .inputForm{ margin: 0px !important;}
+  .tab_form button {
+    color: #FF7F2A !important;
+    font-size: 28px;
+    line-height: 30px;
+    font-weight: 500 !important;
+    padding: 0px;
+    height: auto;
+  }
+  .f_form {
+    padding: 0 23px !important;
+  }

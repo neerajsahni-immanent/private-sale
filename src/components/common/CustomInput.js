@@ -87,3 +87,24 @@ export function GreenButton({ id, BtnName, address, onClick, isLoading }) {
       </div>
     );
   }
+
+  export function LableTextComponent({ Head, Head2, icons, Head3 }) {
+    return (
+      <div className="showcard">
+        {/* <div className="cardicon">
+          <span>
+            <i className={icons}></i>
+          </span>
+        </div> */}
+        <h2>
+          <span className="span2">{Head2}</span>
+        </h2>
+        <h6 className="">
+          <span className="span1">{Head}</span>
+        </h6>
+        <h6 className="claim-font">
+         <b> <i><span className="span1">{Head3}</span></i></b>
+        </h6>
+      </div>
+    );
+  }

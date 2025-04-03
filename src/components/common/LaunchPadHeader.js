@@ -5,10 +5,12 @@ import Link from "next/link";
 import { useState } from "react";
 import './LaunchPadHeader.css';
 import { WalletConnectButton } from "./Wallet/WalletConnectButton";
+import { useAccount } from "wagmi";
 
 
 const LaunchPadHeader = ({ children }) => {
     const [sidebar, setSideBar] = useState(false);
+      const { address, isConnected, chainId, connector } = useAccount();
 
     const  auth  = {}
     const ROLE = auth?.auth?.user?.role;
@@ -30,10 +32,10 @@ const LaunchPadHeader = ({ children }) => {
                         </Link>
                         <nav id="navmenu" className="navmenu">
                             <ul className="m-auto">
-                                <li><a href="#" className="active">Home<br /></a></li>
-                                <li><a href="#">Projects</a></li>
-                                {isAuth() && <li><a href="#">Dashboard</a></li>}
-                                <li><a href="#">Notification</a></li>
+                                {/* <li><a href="#" className="active">Home<br /></a></li> */}
+                                {/* <li><a href="#">Projects</a></li> */}
+                                {isConnected && <li><Link href="/dashbaord">Dashboard</Link></li>}
+                                {/* <li><a href="#">Notification</a></li> */}
                             </ul>
                             <ul className="mr-0">
 

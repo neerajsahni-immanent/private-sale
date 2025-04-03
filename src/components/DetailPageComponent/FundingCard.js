@@ -1,25 +1,28 @@
 
 import Image from "next/image";
-import CountdownTimer from "./CountdownTimer";
+
 // import { format } from "date-fns-tz";
 import { formatNumber } from "@/utils/formatters";
 import { FRONTEND_URL } from "@/utils/constants";
 import { useEffect, useState } from "react";
 // import { getDataAPI } from "@/utils/API_Instance";
 import { CustomButton } from "../common/CustomInput";
-const FundingCard = ({ projectDetail, onOpenDeposit }) => {
-const [totalRaised, setTotalRaised]= useState({amount:1.68, percentage:10, participants:0})
+import dynamic from "next/dynamic";
+const CountdownTimer = dynamic(() => import("./CountdownTimer"), { ssr: false });
 
-  useEffect(()=>{
+const FundingCard = ({ projectDetail, onOpenDeposit }) => {
+  const [totalRaised, setTotalRaised] = useState({ amount: 1.68, percentage: 10, participants: 0 })
+
+  useEffect(() => {
     fetchToatalUSDTRaised();
-  },[])
-  const fetchToatalUSDTRaised= async()=>{
+  }, [])
+  const fetchToatalUSDTRaised = async () => {
     try {
-    //   const res= await getDataAPI('project/get-total-usdt-deposited');
-    //   console.log(res.data,'total usdt raised')
-    //   if(res.status === 200){
-    //     setTotalRaised(res.data)
-    //   }
+      //   const res= await getDataAPI('project/get-total-usdt-deposited');
+      //   console.log(res.data,'total usdt raised')
+      //   if(res.status === 200){
+      //     setTotalRaised(res.data)
+      //   }
     } catch (error) {
       console.log(error);
     }
@@ -34,10 +37,10 @@ const [totalRaised, setTotalRaised]= useState({amount:1.68, percentage:10, parti
       <div className="grey_box">
         <p>Network: <span className=""><Image src={`${FRONTEND_URL}/currency.png`} alt="" width={12} height={12} />&nbsp; Tether (USDT)</span></p>
         <p>Participants: <span className="">{totalRaised
-        .participants} Participants</span></p>
+          .participants} Participants</span></p>
         <p>Start Date: <span className="">{
-        // format(new Date(projectDetail.funding.startDate), "PPP")
-        projectDetail.funding.startDate
+          // format(new Date(projectDetail.funding.startDate), "PPP")
+          projectDetail.funding.startDate
         }</span></p>
       </div>
 
@@ -54,7 +57,7 @@ const [totalRaised, setTotalRaised]= useState({amount:1.68, percentage:10, parti
           <div className="" style={{ width: "50%" }}></div>
         </div>
       </div>
-      
+
       <CountdownTimer targetDate={projectDetail.funding.endDate} />
 
       <CustomButton BtnName={'Fund Project'} onClick={onOpenDeposit} />

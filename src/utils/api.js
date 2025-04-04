@@ -2,7 +2,7 @@
 import axios from "axios";
 
 // const BaseUrl = process.env.NEXT_PUBLIC_API_URL;
-const BaseUrl ='https://api-partner.spheramarket.com/api/v1/'
+const BaseUrl ='http://localhost:8040/api/v1/'
 // Create an instance of axios with a default base URL
 const api = axios.create({
   baseURL: `${BaseUrl}`,

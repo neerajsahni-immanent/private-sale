@@ -8,9 +8,9 @@ import { useEffect, useState } from "react"
 const UserDepositHistoryComponent =({userId})=>{
 const [userDeposit, setUserDeposit]= useState([]);
 useEffect(()=>{
-    if(userId){
-        fetchUserDeposit(userId)
-    }
+    // if(userId){
+        fetchUserDeposit()
+    // }
 
 },[])
 
@@ -18,6 +18,7 @@ useEffect(()=>{
 const fetchUserDeposit = async()=>{
     try {
         const res = await getDataAPI(`user/get-user-deposit`);
+        console.log(res);
         if(res.status === 200){
             setUserDeposit(res.data.userDeposits)
         }

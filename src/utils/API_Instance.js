@@ -1,7 +1,7 @@
 import axios from "axios";
 import api from "./api";
 import { store } from "@/redux/store";
-const BaseUrl = process.env.NEXT_PUBLIC_API_URL;
+const BaseUrl = 'http://localhost:8040/api/';
 // const accessToken = localStorage.getItem('accessToken');
 // const refreshToken = localStorage.getItem('refreshToken')
 // const accessToken = store.getState().auth?.auth?.user?.token;
@@ -9,7 +9,7 @@ const BaseUrl = process.env.NEXT_PUBLIC_API_URL;
 export const postDataAPI = async (url, data) => {
   const res = await api.post(url, data, {
     headers: {
-      Authorization: `Bearer ${accessToken}`,
+      // Authorization: `Bearer ${accessToken}`,
     },
     withCredentials: true,
   });

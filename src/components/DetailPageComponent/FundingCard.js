@@ -19,11 +19,11 @@ const FundingCard = ({ projectDetail, onOpenDeposit }) => {
   }, [])
   const fetchToatalUSDTRaised = async () => {
     try {
-        const res= await getDataAPI('project/get-total-usdt-deposited');
-        console.log(res.data,'total usdt raised')
-        if(res.status === 200){
-          setTotalRaised(res.data)
-        }
+      const res = await getDataAPI('project/get-total-usdt-deposited');
+      console.log(res.data, 'total usdt raised')
+      if (res.status === 200) {
+        setTotalRaised(res.data)
+      }
     } catch (error) {
       console.log(error);
     }

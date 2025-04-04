@@ -386,7 +386,7 @@ const handleTransfer = async (adminWallet) => {
             </div>
           </div>
         </Container>
-        {true&& <UserDepositHistoryComponent userId={auth?.auth?.user?._id} />}
+        {/* {true&& <UserDepositHistoryComponent userId={auth?.auth?.user?._id} />} */}
         {isMoonPayActive && <MoonPayComponent />}
     
       </LaunchPadHeader>

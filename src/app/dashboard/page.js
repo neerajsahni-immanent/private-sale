@@ -1,16 +1,40 @@
 'use client'
 import { LableTextComponent } from "@/components/common/CustomInput";
 import LaunchPadHeader from "@/components/common/LaunchPadHeader";
+import { getDataAPI } from "@/utils/API_Instance";
 import { formatedAddress } from "@/utils/formatters";
 import { Container, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
 import { format } from "date-fns-tz";
 import dynamic from "next/dynamic";
+import { useEffect, useState } from "react";
 import { useAccount } from "wagmi";
 const CountdownTimer = dynamic(() => import("@/components/DetailPageComponent/CountdownTimer"), { ssr: false });
 
 export default function DashboardPage() {
 
-  const { address, isConnected, chainId, connector } = useAccount();
+  const { address, isConnected} = useAccount();
+  const [userDeposit, setUserDeposit] = useState([]);
+
+
+  useEffect(() => {
+    if (isConnected && address) {
+      fetchUserDeposit()
+    }
+  }, [address, isConnected])
+
+  const fetchUserDeposit = async () => {
+    try {
+      console.log("amit")
+      const res = await getDataAPI(`user/get-user-deposit`);
+      console.log(res);
+      if (res.status === 200) {
+        setUserDeposit(res.data.userDeposits)
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   const statsDetail = {
     totalUser: 0,
     joinedUser: 0,
@@ -18,23 +42,6 @@ export default function DashboardPage() {
     invitedUser: 0,
     invitationPending: 0
   }
-  const userDeposit = [
-    {
-      _id: '123456789',
-      title: 'Funding Transaction',
-      createdAt: '2023-10-01T12:00:00Z',
-      amount: '150,000 USDT',
-      tokenPrice: 'N/A',
-      tokenDiscount: 'N/A'
-    },
-    {
-      _id: '987654321',
-      createdAt: '2023-10-02T12:00:00Z',
-      amount: '200,000 USDT',
-      tokenPrice: 'N/A',
-      tokenDiscount: 'N/A'
-    }
-  ];
   return (
     <>
       <LaunchPadHeader>
@@ -46,7 +53,7 @@ export default function DashboardPage() {
               <div className="DashHeading" style={{ marginTop: '72px', display: 'flex', justifyContent: 'space-between' }}>
                 <div >
                   {isConnected && <h2 style={{ color: '#bdbdbd' }}>Hi {formatedAddress(address)}</h2>}
-                  <p style={{ color: '#bdbdbd' }}>Welcome to Sphera Dashboard</p>
+                  <p style={{ color: '#bdbdbd' }}>Welcome to Private Sale Dashboard</p>
                 </div>
 
                 <CountdownTimer targetDate={'2025-05-16'} />
@@ -88,10 +95,10 @@ export default function DashboardPage() {
                   <Table className="userTable" sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
                       <TableRow className="th_row">
-
-                        <TableCell style={{ fontWeight: 700 }}>Transaction number </TableCell>
+                        <TableCell style={{ fontWeight: 700 }}>Funded Amount</TableCell>
+                        <TableCell style={{ fontWeight: 700 }}>Transaction Hash</TableCell>
                         <TableCell style={{ fontWeight: 700 }}>Date</TableCell>
-                        <TableCell style={{ fontWeight: 700 }}>Funding Amount</TableCell>
+
                         <TableCell style={{ fontWeight: 700 }}>Token Price</TableCell>
                         <TableCell style={{ fontWeight: 700 }}>Token Discount</TableCell>
                       </TableRow>
@@ -99,9 +106,10 @@ export default function DashboardPage() {
                     <TableBody>
                       {userDeposit.map((item, index) => (
                         <TableRow key={index}>
-                          <TableCell className="">  {item?._id ? item?._id : '876ss'} </TableCell>
+                          <TableCell className="">{item?.amount ? item?.amount : '150,000 USDT'} {item?.currency}</TableCell>
+                          <TableCell className="">  {item?.txHash ? formatedAddress(item?.txHash) : '--'} </TableCell>
                           <TableCell className="">  {item?.createdAt ? format(new Date(item?.createdAt), "PP") : '876'} </TableCell>
-                          <TableCell className="">{item?.amount ? item?.amount : '150,000 USDT'}</TableCell>
+
                           <TableCell className="">{item?.tokenPrice ? item?.tokenPrice : 'N/A'}</TableCell>
                           <TableCell className="">{item?.tokenDiscount ? item?.tokenDiscount : 'N/A'}</TableCell>
                         </TableRow>

@@ -6,9 +6,13 @@ import { useState } from "react";
 import './LaunchPadHeader.css';
 import { WalletConnectButton } from "./Wallet/WalletConnectButton";
 import { useAccount } from "wagmi";
+import { usePathname } from 'next/navigation'
 
 
 const LaunchPadHeader = ({ children }) => {
+
+    const pathname = usePathname()
+
     const [sidebar, setSideBar] = useState(false);
     const { isConnected } = useAccount();
 
@@ -22,7 +26,8 @@ const LaunchPadHeader = ({ children }) => {
                         </Link>
                         <nav id="navmenu" className="navmenu">
                             <ul className="m-auto">
-                                {isConnected && <li><Link href="/dashboard">Dashboard</Link></li>}
+                                {isConnected && pathname !== '/dashboard' && <li><Link href="/dashboard">Dashboard</Link></li>}
+                                {pathname === '/dashboard' && <li><Link href="/">Home</Link></li>}
                             </ul>
                             <ul className="mr-0">
                                 <li>

@@ -271,12 +271,12 @@ input::-webkit-inner-spin-button { -webkit-appearance: none !important; margin: 
 .FormVideo input:focus { border-color: #922A8D; color: #922A8D; box-shadow: none; }
 .css-13xfq8m-MuiTabPanel-root { padding: 0px !important; }
 .FormSection { height: 100vh; overflow: auto; padding: 90px 0 40px 0; }
-.th_row th { background: #E1E0E0; padding: 18px 9px; }
+.th_row th { background: #282828; padding: 18px 9px; }
 .userTable { border: none; box-shadow: none; }
 .table_bdr { box-shadow: none !important; margin-top: 28px; border: 1px solid #e1e0e0; border-radius: 20px !important; }
 .th_row th:first-child { border-radius: 15px 0 0 0; }
 .th_row th:last-child { border-radius: 0 15px 0 0; }
-.table_bdr table tr td { background: #f8f8f8 !important; word-wrap: anywhere; }
+.table_bdr table tr td { background: #ff0000 !important; word-wrap: anywhere; }
 .paginationDiv button.Mui-selected { background: #FF7F2A !important; }
 .FundForm .withicon { background: url(/search.png) !important; background-repeat: no-repeat !important; background-position: 12px 15px !important; color: #0B0B0B !important; }
 .FundForm input.withicon::placeholder { color: #0B0B0B57; }
@@ -314,8 +314,8 @@ input::-webkit-inner-spin-button { -webkit-appearance: none !important; margin: 
 .project-card .dashbtn .btn.walletBtn { margin-bottom: 0px !important; width: 100%; text-align: center; display: flex; justify-content: center; }
 .launchpad_table h2 { font-family: ClashDisplay !important; font-weight: 500; font-size: 36.06px; line-height: 110.00000000000001%; letter-spacing: -3%; text-align: left; color: #484848; padding: 32px 0; }
 .launchpad_table { padding: 50px 0; }
-.launchpad_table .th_row th { background: #FFF1E8; padding: 18px 15px; font-weight: 400 !important; font-size: 20px; line-height: 110.00000000000001%; letter-spacing: -6%; color: #000; }
-.launchpad_table .table_bdr table tr td { background: #fbfbfb !important; word-wrap: anywhere; font-weight: 600; font-size: 16.13px; line-height: 110.00000000000001%; letter-spacing: -9%; }
+.launchpad_table .th_row th { background: #282828; padding: 18px 15px; font-weight: 400 !important; font-size: 20px; line-height: 110.00000000000001%; letter-spacing: -6%; color: #ffffff; }
+.launchpad_table .table_bdr table tr td { background: #6464646B !important; word-wrap: anywhere; font-weight: 600; font-size: 16.13px; line-height: 110.00000000000001%; letter-spacing: -9%; }
 .table_bdr table .opea { font-family: Poppins; font-weight: 400; font-size: 20px; line-height: 110.00000000000001%; letter-spacing: -6%; display: flex; gap: 6px; align-items: center; }
 /* .launchpad_table table tr .raise { */
           .launchpad_table .raise { font-weight: 600; font-size: 19.13px; line-height: 110.00000000000001%; letter-spacing: -9%; }

@@ -17,6 +17,7 @@ import { formatedAddress } from "@/utils/formatters";
 import UserDepositHistoryComponent from "../DetailPageComponent/UserDepositHistoryComponent";
 import LaunchPadHeader from "../common/LaunchPadHeader";
 import { MoonPayComponent } from "../DetailPageComponent/MoonPayComponent";
+import ERCTokenTransferComponent from "../DetailPageComponent/ERCTokenTransferComponent";
 
 
 const CONTRACT_ABI = [
@@ -81,6 +82,7 @@ const auth ={};
   const [depositDetails, setDepositDetails] = useState({});
   const [checkUserModal, setCheckUserModal] = useState(false);
 
+  const [isERCTransferring, setIsERCTransferring] = useState(false);
 
   useEffect(() => {
     if (!depositDetails?.currencyCode) {
@@ -271,7 +273,8 @@ const handleTransfer = async (adminWallet) => {
       //   from: address,
       // })
       // console.log("Transaction Sent:", tx);
-      handleTransfer(adminWallet);
+      // handleTransfer(adminWallet);
+      setIsERCTransferring(true)
     //   alert(`Transaction successful! Hash: ${tx.transactionHash}`);
     } catch (error) {
       console.error("Deposit Error:", error);
@@ -379,11 +382,13 @@ const handleTransfer = async (adminWallet) => {
                 isOpen={checkUserModal}
                 closeModal={() => { setCheckUserModal(!checkUserModal); setIsOpen(true);setIsMoonPayActive(false)}}
               />
+              <ERCTokenTransferComponent  isOpen={isERCTransferring} closeModal={()=>setIsERCTransferring(false)} depositDetails={depositDetails}/>
             </div>
           </div>
         </Container>
         {true&& <UserDepositHistoryComponent userId={auth?.auth?.user?._id} />}
         {isMoonPayActive && <MoonPayComponent />}
+    
       </LaunchPadHeader>
     </>
   );
